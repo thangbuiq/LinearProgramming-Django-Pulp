@@ -1,0 +1,13 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="objective">Objective:</label>
+    <input type="text" name="objective" id="objective" placeholder="2 7" required><br>
+    <label for="constraints">Constraints:</label>
+    <textarea name="constraints" id="constraints" placeholder="1 2 <= 10&#10;2 -1 >= 5" required></textarea><br>
+    <label for="sense">Sense:</label>
+    <select name="sense" id="sense">
+        <option value="min">Minimize</option>
+        <option value="max">Maximize</option>
+    </select><br>
+    <input type="submit" value="Solve">
+</form>

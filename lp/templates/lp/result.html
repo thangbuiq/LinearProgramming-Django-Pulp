@@ -1,0 +1,11 @@
+<h2>Optimization Results</h2>
+<p><strong>Objective:</strong> {{ objective }}</p>
+<p><strong>Constraints:</strong> {{ constraints_matrix }}</p>
+<p><strong>Sense:</strong> {{ sense }}</p>
+<p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
+<p><strong>Variable Values:</strong></p>
+<ul>
+    {% for value in variable_values %}
+    <li>x_{{ forloop.counter }}: {{ value }}</li>
+    {% endfor %}
+</ul>
