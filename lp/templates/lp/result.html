@@ -1,11 +1,51 @@
-<h2>Optimization Results</h2>
-<p><strong>Objective:</strong> {{ objective }}</p>
-<p><strong>Constraints:</strong> {{ constraints_matrix }}</p>
-<p><strong>Sense:</strong> {{ sense }}</p>
-<p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
-<p><strong>Variable Values:</strong></p>
-<ul>
-    {% for value in variable_values %}
-    <li>x_{{ forloop.counter }}: {{ value }}</li>
-    {% endfor %}
-</ul>
+{% load static %}
+{% load materializecss %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Linear Optimization Solver</title>
+    {% block css %}
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+      <link rel="stylesheet" href="{% static '/style.css' %}">
+      {% endblock css %}
+      <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    </head>
+
+<body >
+
+    {% block javascript %}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+    
+    <script>
+    $(document).ready(function(){
+    
+      // Initialize materialize data picker
+      $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+      $('select').formSelect();
+    
+    });
+    </script>
+    {% endblock javascript %}
+    <center>
+      <form>
+        <h2>Optimization Results</h2>
+        <p><strong>Objective:</strong> {{ objective }}</p>
+        <p><strong>Constraints:</strong> {{ constraints_matrix }}</p>
+        <p><strong>Sense:</strong> {{ sense }}</p>
+        <p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
+        <p><strong>Variable Values:</strong></p>
+        <ul>
+            {% for value in variable_values %}
+            <li>x_{{ forloop.counter }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+      </form>
+    </center>
+    </body>
+</html>

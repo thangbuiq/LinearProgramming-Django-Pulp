@@ -1,13 +1,55 @@
-<form method="post">
-    {% csrf_token %}
-    <label for="objective">Objective:</label>
-    <input type="text" name="objective" id="objective" placeholder="2 7" required><br>
-    <label for="constraints">Constraints:</label>
-    <textarea name="constraints" id="constraints" placeholder="1 2 <= 10&#10;2 -1 >= 5" required></textarea><br>
-    <label for="sense">Sense:</label>
-    <select name="sense" id="sense">
-        <option value="min">Minimize</option>
-        <option value="max">Maximize</option>
-    </select><br>
-    <input type="submit" value="Solve">
-</form>
+{% load static %}
+{% load materializecss %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Linear Optimization Solver</title>
+    {% block css %}
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="{% static '/materialize.css' %}">
+      <link rel="stylesheet" href="{% static '/style.css' %}">
+      {% endblock css %}
+      <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    </head>
+<body >
+
+    {% block javascript %}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+    
+    <script>
+    $(document).ready(function(){
+    
+      // Initialize materialize data picker
+      $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+      $('select').formSelect();
+    
+    });
+    </script>
+    {% endblock javascript %}
+
+    <center>
+    <form method="post" style = "width:50%;"> 
+        {% csrf_token %}
+        <h2>Optimization Problem</h2> <br>
+        <label for="sense">Problem Sense:</label> <br>
+        <select name="sense" id="sense">
+            <option value="min">Minimize</option>
+            <option value="max">Maximize</option>
+        </select><br>
+        <label for="objective">Objective:</label> <br>
+        <input type="text" name="objective" id="objective" placeholder="2 7" required><br>
+        <label for="constraints">Constraints:</label>
+        <textarea name="constraints" class="textarea" id="constraints" placeholder="1 2 <= 10&#10;2 -1 >= 5" required></textarea><br>
+        <label for="bounds">Bounds:</label> <br>
+        <input type="text" name="bounds" id="bounds" placeholder=">= <=" required><br>
+        <input type="submit" class = "button" value="Solve">
+
+    </form>
+    </center>
+    </body>
+</html>

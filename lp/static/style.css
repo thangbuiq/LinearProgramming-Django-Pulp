@@ -1,0 +1,107 @@
+form {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    max-width: 80%;
+    margin-top: 5vh;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center;
+    background-color: white;
+}
+
+body {
+    background: #253568 no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.button {
+    border-radius: 12px;
+    position: relative;
+    background-color: #253568;
+    border: none;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button:after {
+    border-radius: 12px;
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+
+
+.button:active:after {
+    border-radius: 12px;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+
+input {
+    width: 35%;
+    padding: 5px 8px;
+    background-color: rgba(37, 53, 104, 0.8);
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+}
+
+input:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+
+label {
+    font-size: 20px;
+}
+
+textarea {
+    margin-top: 10px;
+    width: 500px;
+    height: 100px;
+    background-color: rgba(37, 53, 104, 0.8);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position: center;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+    resize: none;
+}
+
+
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+
+select {}
