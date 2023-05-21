@@ -23,3 +23,4 @@ urlpatterns = [
     path('', include(('lp.urls', 'lp'), namespace='lp')),
 ]
 
+

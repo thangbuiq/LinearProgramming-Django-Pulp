@@ -68,11 +68,13 @@ input {
     color: #555555;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 25px;
+    color: white;
 }
 
 input:focus {
     background: none repeat scroll 0 0 #FFFFFF;
     outline-width: 0;
+    color: rgba(37, 53, 104);
 }
 
 label {
@@ -93,6 +95,7 @@ textarea {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 25px;
     line-height: 1.4em;
+    color: white;
     padding: 5px 8px;
     transition: background-color 0.2s ease 0s;
     resize: none;
@@ -100,8 +103,7 @@ textarea {
 
 
 textarea:focus {
+    color: rgba(37, 53, 104);
     background: none repeat scroll 0 0 #FFFFFF;
     outline-width: 0;
 }
-
-select {}
