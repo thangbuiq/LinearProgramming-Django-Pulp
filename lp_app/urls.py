@@ -20,7 +20,8 @@ app_name = 'lp'  # Add this line to specify the app_name
 
 urlpatterns = [
     # Other URL patterns
-    path('', include(('lp.urls', 'lp'), namespace='lp')),
+    # path('', include(('lp.urls', 'lp'), namespace='lp')),
+    path('', include('lp.urls')),
 ]
 
 
