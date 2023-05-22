@@ -269,5 +269,10 @@ input[type="radio"] {
 
     .button {
         margin-bottom: 80px;
+        /* other, unchanged, CSS */
+        line-height: 80px;
+        /* <- changed this */
+        box-sizing: border-box;
+        /* <- added this */
     }
 }
