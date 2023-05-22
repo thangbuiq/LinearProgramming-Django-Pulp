@@ -6,14 +6,16 @@ def lp_solve(request):
         objective = request.POST.get('objective')
         constraints = request.POST.get('constraints')
         sense = request.POST.get('sense')
+        bounds = request.POST.get('bounds')
 
-        lp_problem = LinearProblem(objective=objective, constraints_matrix=constraints, sense=sense)
+        lp_problem = LinearProblem(objective=objective, constraints_matrix=constraints, sense=sense, bounds=bounds)
         optimal_value, variable_values = lp_problem.solve_problem()
 
         context = {
             'objective': objective,
             'constraints_matrix': constraints,
             'sense': sense,
+            'bounds': bounds,
             'optimal_value': optimal_value,
             'variable_values': variable_values,
         }

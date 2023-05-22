@@ -18,6 +18,7 @@ class LinearProblem(models.Model):
     objective = models.TextField()
     constraints_matrix = models.TextField()
     sense = models.CharField(max_length=10)
+    bounds = models.TextField()
     def solve_problem(self):
         """
         Solve the linear programming problem and return the results.
@@ -31,14 +32,27 @@ class LinearProblem(models.Model):
         constraints = self.constraints_matrix.split('\n')
         constraints_matrix = [c.split() for c in constraints if c.strip()]
         sense = LpMinimize if self.sense == 'min' else LpMaximize
+        bounds = [float(val) for val in self.bounds.split()]
         n_variables = len(objective)
         n_constraints = len(constraints_matrix)
 
 
         lp_problem = LpProblem("Linear_Programming_Problem", sense)
+        """
         variables = [LpVariable(f"x_{i+1}", lowBound=0) for i in range(n_variables)]
         objective = lpSum(objective[i] * variables[i] for i in range(n_variables))
-        lp_problem.setObjective(objective)
+        """
+        variables = []
+        for i in range(len(self.bounds)):
+            bound = bounds[i]
+            if bound == '>=':
+                variables.append(LpVariable(f"x_{i+1}", lowBound=0))
+            elif bound == '<=':
+                variables.append(LpVariable(f"x_{i+1}", upBound=0))
+            else:
+                variables.append(LpVariable(f"x_{i+1}"))
+        objective_ = lpSum(objective[i] * variables[i] for i in range(n_variables))
+        lp_problem.setObjective(objective_)
 
         for i in range(n_constraints):
             constraint = lpSum(float(constraints_matrix[i][j]) * variables[j] for j in range(n_variables))

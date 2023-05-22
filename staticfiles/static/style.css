@@ -8,7 +8,6 @@ form {
     border-radius: 15px;
     justify-content: center;
     background-color: white;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -17,7 +16,8 @@ body {
     background-size: cover;
     font-family: 'Lato', sans-serif;
     background-position: center center;
-    margin: 0;
+    margin: auto;
+    zoom: auto;
 }
 
 h2 {
@@ -35,6 +35,9 @@ h2 {
     color: #FFFFFF;
     padding: 20px;
     width: 100px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
