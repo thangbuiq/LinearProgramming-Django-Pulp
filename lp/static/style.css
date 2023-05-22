@@ -278,10 +278,9 @@ input[type="radio"] {
 
     .button {
         margin-bottom: 25px;
-        height: 15%;
+        height: 35%;
         /* other, unchanged, CSS */
         /* <- changed this */
-        box-sizing: border-box;
         align-items: center;
         text-align: center;
     }
