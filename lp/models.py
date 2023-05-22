@@ -32,7 +32,7 @@ class LinearProblem(models.Model):
         constraints = self.constraints_matrix.split('\n')
         constraints_matrix = [c.split() for c in constraints if c.strip()]
         sense = LpMinimize if self.sense == 'min' else LpMaximize
-        bounds = [float(val) for val in self.bounds.split()]
+        bounds = [str(val) for val in self.bounds.split()]
         n_variables = len(objective)
         n_constraints = len(constraints_matrix)
 
