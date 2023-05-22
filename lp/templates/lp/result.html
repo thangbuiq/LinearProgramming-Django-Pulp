@@ -45,12 +45,14 @@
     <center>
     <form method="post"> 
         <h2>Optimization Results</h2>
-        <p><strong>Status:</strong> {{ lp_status }}</p>
-        <p><strong>Objective:</strong> {{ objective }}</p>
-        <p><strong>Constraints:</strong> {{ constraints_matrix }}</p>
-        <p><strong>Sense:</strong> {{ sense }}</p>
-        <p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
-        <p><strong>Variable Values:</strong></p>
+        <p><strong>Bài toán: </strong> {{ lp_status }}</p>
+        <p><strong>Hàm mục tiêu: </strong>
+        {% for value in objective %}
+        {{ value }}*x{{ forloop.counter}}
+        {% endfor %}
+        </p>
+        <p><strong>Giá trị tối ưu: </strong> {{ sense }} = {{ optimal_value }}</p>
+        <p><strong>Nghiệm tối ưu: </strong></p>
         {% for value in variable_values %}
         <p><strong>x_{{ forloop.counter}}: {{ value }}</strong></p>
         {% endfor %}

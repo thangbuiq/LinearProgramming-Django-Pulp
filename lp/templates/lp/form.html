@@ -25,15 +25,28 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
 
-    <script>
-    $(document).ready(function(){
-
+  <script>
+    $(document).ready(function() {
       // Initialize materialize data picker
-      $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+      $('.datepicker').datepicker({ 'format': 'yyyy-mm-dd' });
       $('select').formSelect();
 
+      // Add event listener to the submit button
+      $('#submitBtn').click(function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show the popup and overlay
+        $('.popup').css('display', 'inline');
+        $('.overlay').addClass('show');
+      });
+
+      // Add event listener to the overlay close button
+      $('#close').click(function() {
+        $('.popup').css('display', 'none');
+        $('.overlay').removeClass('show');
+      });
     });
-    </script>
+  </script>
     {% endblock javascript %}
     <!--
     <ul>
@@ -43,6 +56,7 @@
     </ul>
     -->
     <center>
+    <div class="overlay"></div>
     <form method="post"> 
         {% csrf_token %}
         <h2>Optimization Problem</h2>
@@ -68,5 +82,24 @@
         <input type="submit" class = "button" value="Solve">
     </form>
     </center>
+      <div class="popup">
+        <button id="close">&times;</button>
+        <h2>Optimization Results</h2>
+        <p><strong>Bài toán: </strong> {{ lp_status }}</p>
+        <p><strong>Giá trị tối ưu: </strong> {{ sense }} = {{ optimal_value }}</p>
+        <p><strong>Nghiệm tối ưu: </strong></p>
+        {% for value in variable_values %}
+        <p><strong>x_{{ forloop.counter}}: {{ value }}</strong></p>
+        {% endfor %}
+        <a href="/">OK</a>
+    </div>
     </body>
+      {% if result %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.popup').css('display', 'inline');
+      $('.overlay').addClass('show');
+    });
+  </script>
+  {% endif %}
 </html>

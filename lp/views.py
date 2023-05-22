@@ -11,20 +11,22 @@ def lp_solve(request):
         lp_problem = LinearProblem(objective=objective, constraints_matrix=constraints, sense=sense, bounds=bounds)
         optimal_value, variable_values, lp_status = lp_problem.solve_problem()
         if lp_status == '1':
-            status = "Bai toan toi uu"
+            status = "Tối ưu"
         elif lp_status == '-1':
-            status = "Bai toan vo nghiem"
+            status = "Vô nghiệm"
         else:
-            status = "Bai toan khong gioi noi"
+            status = "Không giới nội"
         context = {
             'objective': objective,
             'constraints_matrix': constraints,
             'sense': sense,
             'bounds': bounds,
-            'lp_status':status,
+            'lp_status': status,
             'optimal_value': optimal_value,
             'variable_values': variable_values,
         }
-        return render(request, 'lp/result.html', context)
+        # Add the 'result' context variable to be used in form.html
+        context['result'] = True
+        return render(request, 'lp/form.html', context)
 
     return render(request, 'lp/form.html')

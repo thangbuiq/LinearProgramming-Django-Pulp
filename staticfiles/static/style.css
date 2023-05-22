@@ -251,6 +251,76 @@ input[type="radio"] {
     color: #fff;
 }
 
+.popup {
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 16px;
+    font-family: "Lato", sans-serif;
+    display: none;
+    text-align: center;
+    z-index: 999;
+    transition: display 0.3s ease-in-out;
+}
+
+.popup button {
+    display: block;
+    margin: 0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+    background: #03549a;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.popup h2 {
+    margin-top: -20px;
+}
+
+.popup p {
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+a {
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #0f72e5;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    left: 0;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.show {
+    display: block;
+}
+
 /* Mobile Devices */
 @media (max-width: 767px) {
     form {
