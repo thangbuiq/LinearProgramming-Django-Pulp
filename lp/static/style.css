@@ -8,6 +8,7 @@ form {
     border-radius: 15px;
     justify-content: center;
     background-color: white;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -243,26 +244,26 @@ input[type="radio"] {
     color: #fff;
 }
 
-/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
-@media (max-width: 800px) {
-    .form-inline input {
-        margin: 10px 0;
-    }
-
-    .form-inline {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
+/* Mobile Devices */
+@media (max-width: 767px) {
     form {
-        display: flex;
-        flex-direction: column;
-        height: 85vh;
         max-width: 100%;
-        margin-top: 5vh;
-        align-items: center;
-        border-radius: 15px;
-        justify-content: center;
-        background-color: white;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    textarea {
+        width: 100%;
+        height: auto;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .wrapper .option {
+        margin: 0 5px;
     }
 }
