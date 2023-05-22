@@ -10,13 +10,18 @@ def lp_solve(request):
 
         lp_problem = LinearProblem(objective=objective, constraints_matrix=constraints, sense=sense, bounds=bounds)
         optimal_value, variable_values, lp_status = lp_problem.solve_problem()
-
+        if lp_status == '1':
+            status = "Bai toan toi uu"
+        elif lp_status == '-1':
+            status = "Bai toan vo nghiem"
+        else:
+            status = "Bai toan khong gioi noi"
         context = {
             'objective': objective,
             'constraints_matrix': constraints,
             'sense': sense,
             'bounds': bounds,
-            'lp_status':lp_status,
+            'lp_status':status,
             'optimal_value': optimal_value,
             'variable_values': variable_values,
         }

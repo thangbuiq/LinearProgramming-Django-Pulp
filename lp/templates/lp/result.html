@@ -51,11 +51,9 @@
         <p><strong>Sense:</strong> {{ sense }}</p>
         <p><strong>Optimal Value:</strong> {{ optimal_value }}</p>
         <p><strong>Variable Values:</strong></p>
-        <ul>
-            {% for value in variable_values %}
-            <li>x_{{ forloop.counter }}: {{ value }}</li>
-            {% endfor %}
-        </ul>
+        {% for value in variable_values %}
+        <p><strong>x_{{ forloop.counter }}: {{ value }}</strong></p>
+        {% endfor %}
     </form>
     </center>
     </body>

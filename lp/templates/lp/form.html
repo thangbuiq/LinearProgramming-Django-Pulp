@@ -45,8 +45,8 @@
     <center>
     <form method="post"> 
         {% csrf_token %}
-        <h2>Optimization Problem</h2> <br>
-        <label for="sense">Problem Sense:</label><br>
+        <h2>Optimization Problem</h2>
+        <label for="sense">Problem Sense:</label>
         <div class="wrapper">
         <input type="radio" name="sense" id="option-1" value="min" checked>
         <input type="radio" name="sense" id="option-2" value="max">
@@ -58,13 +58,13 @@
             <div class="dot"></div>
               <span>Maximize</span>
           </label>
-        </div><br><br>
-        <label for="objective">Objective:</label> <br>
-        <input type="text" name="objective" id="objective" placeholder="c1 c2" required><br>
-        <label for="constraints">Constraints:</label> <br>
-        <textarea name="constraints" class="textarea" id="constraints" rows="5" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea><br>
-        <label for="bounds">Bounds:</label> <br>
-        <input type="text" name="bounds" id="bounds" placeholder=">= <= (x1 >= 0 and x2 <= 0)" required><br>
+        </div>
+        <label for="objective">Objective:</label> 
+        <input type="text" name="objective" id="objective" placeholder="c1 c2" required>
+        <label for="constraints">Constraints:</label> 
+        <textarea name="constraints" class="textarea" id="constraints" rows="5" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea>
+        <label for="bounds">Bounds:</label> 
+        <input type="text" name="bounds" id="bounds" placeholder=">= <= (x1 >= 0 and x2 <= 0)" required>
         <input type="submit" class = "button" value="Solve">
     </form>
     </center>

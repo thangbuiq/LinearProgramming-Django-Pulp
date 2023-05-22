@@ -8,6 +8,7 @@ form {
     border-radius: 15px;
     justify-content: center;
     background-color: white;
+    gap: 16px;
 }
 
 body {
