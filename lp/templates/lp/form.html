@@ -11,130 +11,59 @@
       {% endblock css %}
       <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" type="image/x-icon">
     <style>
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-    
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    li a:hover:not(.active) {
-        background-color: #111;
-    }
-    
-    li a.active {
-        background-color: rgba(108, 142, 255, 0.8);
-    }
-    input {
-      margin-top: 10px;
-      width: 35%;
-      background-color: rgba(37, 53, 104, 0.8);
-      background-repeat: no-repeat;
-      cursor: pointer;
-      background-position: center;
-      border-radius: 8px 8px 8px 8px;
-      color: #555555;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 25px;
-      color: white;
-      padding: 5px 8px;
-      transition: background-color 0.2s ease 0s;
-      resize: none;
-  }
-  
-  input:focus {
-      color: rgba(37, 53, 104);
-      background: none repeat scroll 0 0 #FFFFFF;
-      outline-width: 0;
-  }
-
     </style>
     </head>
 <body >
-
-    {% block javascript %}
+  {% block javascript %}
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
-    
+
     <script>
     $(document).ready(function(){
-    
+
       // Initialize materialize data picker
       $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
       $('select').formSelect();
-    
-    });
-    /*Dropdown Menu*/
-    $('.dropdown').click(function () {
-      $(this).attr('tabindex', 1).focus();
-      $(this).toggleClass('active');
-      $(this).find('.dropdown-menu').slideToggle(300);
-    });
-    $('.dropdown').focusout(function () {
-      $(this).removeClass('active');
-      $(this).find('.dropdown-menu').slideUp(300);
-    });
-    $('.dropdown .dropdown-menu li').click(function () {
-      $(this).parents('.dropdown').find('span').text($(this).text());
-      $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-    });
-    /*End Dropdown Menu*/
 
-
-    $('.dropdown-menu li').click(function () {
-    var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
-    msg = '<span class="msg">Hidden input value: ';
-    $('.msg').html(msg + input + '</span>');
-    }); 
+    });
     </script>
     {% endblock javascript %}
+    <!--
     <ul>
       <li><a class="active" href="/">Home</a></li>
       <li><a href="#input">Input Another Problem</a></li>
       <li><a href="#about">About Us</a></li>
     </ul>
-    <div>
+    -->
     <center>
-    <form method="post" style = "width:50%;"> 
+    <form method="post"> 
         {% csrf_token %}
         <h2>Optimization Problem</h2> <br>
-        <label for="sense">Problem Sense:</label> <br>
-        <div class="custom-select" style="width:200px;">
-        <select name="sense" id="sense">
-            <option value="min">Minimize</option>
-            <option value="max">Maximize</option>
-        </select>
-        </div><br>
+        <label for="sense">Problem Sense:</label><br>
+        <div class="wrapper">
+        <input type="radio" name="sense" id="option-1" value="min" checked>
+        <input type="radio" name="sense" id="option-2" value="max">
+          <label for="option-1" class="option option-1">
+            <div class="dot"></div>
+              <span>Minimize</span>
+              </label>
+          <label for="option-2" class="option option-2">
+            <div class="dot"></div>
+              <span>Maximize</span>
+          </label>
+        </div><br><br>
         <label for="objective">Objective:</label> <br>
-        <input type="text" name="objective" id="objective" placeholder="2 7" required><br>
-        <label for="constraints">Constraints:</label>
-        <textarea name="constraints" class="textarea" id="constraints" placeholder="1 2 <= 10&#10;2 -1 >= 5" required></textarea><br>
+        <input type="text" name="objective" id="objective" placeholder="c1 c2" required><br>
+        <label for="constraints">Constraints:</label> <br>
+        <textarea name="constraints" class="textarea" id="constraints" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea><br>
         <label for="bounds">Bounds:</label> <br>
-        <input type="text" name="bounds" id="bounds" placeholder=">= <=" required><br>
+        <input type="text" name="bounds" id="bounds" placeholder=">= <= (x1 >= 0 and x2 <= 0)" required><br>
         <input type="submit" class = "button" value="Solve">
-
     </form>
     </center>
-    </div>
     </body>
 </html>
