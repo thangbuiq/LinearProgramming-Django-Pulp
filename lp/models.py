@@ -105,7 +105,7 @@ class LinearProblem(models.Model):
         
         # Remove the temporary file
         os.remove(temp_file_path)
-        return optimal_value, variable_values, lp_status, output_str
+        return optimal_value, variable_values, lp_status, output_str.replace('\nEnd','').replace("\\* Linear_Programming_Problem *\\", "")
 
     def display_result(self):
         """
