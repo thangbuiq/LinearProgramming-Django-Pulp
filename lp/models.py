@@ -1,6 +1,6 @@
 from django.db import models
-from pulp import LpProblem, LpVariable, LpMinimize, LpMaximize, lpSum, value
-
+from pulp import LpProblem, LpVariable, LpMinimize, LpMaximize, lpSum, value, LpStatus
+import numpy as np
 class LinearProblem(models.Model):
     """
     Class representing a linear programming problem.
@@ -43,7 +43,7 @@ class LinearProblem(models.Model):
         objective = lpSum(objective[i] * variables[i] for i in range(n_variables))
         """
         variables = []
-        for i in range(len(self.bounds)):
+        for i in range(len(bounds)):
             bound = bounds[i]
             if bound == '>=':
                 variables.append(LpVariable(f"x_{i+1}", lowBound=0))
@@ -66,16 +66,40 @@ class LinearProblem(models.Model):
                 lp_problem.addConstraint(constraint == rhs)
 
         lp_problem.solve()
-        optimal_value = value(lp_problem.objective)
-        variable_values = [value(variables[i]) for i in range(n_variables)]
+        status = LpStatus[lp_problem.status]
+        lp_status = None
+        if (status == 'Optimal'):
+            lp_status = '1'
+            optimal_value = value(lp_problem.objective)
+            vars_not_0 = [x for x in objective if x != 0]
+            if (len(vars_not_0) < n_constraints):
+                variable_values = []
+                for i in range(n_variables):
+                    if (objective[i]==0):
+                        variable_values.append(f'{value(variables[i])} + w{i}')
+                    else:
+                        variable_values.append(value(variables[i]))
+            else:
+                variable_values = [value(variables[i]) for i in range(n_variables)]
+        elif (status == 'Unbounded'):
+            lp_status = '-2'
+            variable_values= None
+            if (sense == LpMinimize):
+                optimal_value = -np.inf
+            else:
+                optimal_value = np.inf
+        elif (status == 'Infeasible'):
+            lp_status ='-1'
+            variable_values = None
+            optimal_value = None
 
-        return optimal_value, variable_values
+        return optimal_value, variable_values, lp_status
 
     def display_result(self):
         """
         Solve the linear programming problem and display the results.
         """
-        optimal_value, variable_values = self.solve_problem()
+        optimal_value, variable_values, lp_status = self.solve_problem()
         print(">> Optimal Solution:")
         print(">> Optimal value:", optimal_value)
         print(">> Variable values:")
