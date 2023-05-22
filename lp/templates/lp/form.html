@@ -1,14 +1,84 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-<head>
+  <head>  
     <title>Linear Optimization Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block css %}
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'materialize.css' %}">
       <link rel="stylesheet" href="{% static 'style.css' %}">
       {% endblock css %}
-      <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+      <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" type="image/x-icon">
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+    
+    li a.active {
+        background-color: rgba(108, 142, 255, 0.8);
+    }
+    input {
+      margin-top: 10px;
+      width: 35%;
+      background-color: rgba(37, 53, 104, 0.8);
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-position: center;
+      border-radius: 8px 8px 8px 8px;
+      color: #555555;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 25px;
+      color: white;
+      padding: 5px 8px;
+      transition: background-color 0.2s ease 0s;
+      resize: none;
+  }
+  
+  input:focus {
+      color: rgba(37, 53, 104);
+      background: none repeat scroll 0 0 #FFFFFF;
+      outline-width: 0;
+  }
+  @media only screen and (max-width: 640px) {
+    .info {
+        max-width: 600px;
+        width: auto;
+    }
+
+    .info dl {
+        padding: 10px 20px 15px;
+    }
+
+    .info p button {
+        width: 50%;
+        min-width: 200px;
+    }
+}
+    </style>
     </head>
 <body >
 
@@ -30,7 +100,12 @@
     });
     </script>
     {% endblock javascript %}
-
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="#input">Input Another Problem</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <div>
     <center>
     <form method="post" style = "width:50%;"> 
         {% csrf_token %}
@@ -50,5 +125,6 @@
 
     </form>
     </center>
+    </div>
     </body>
 </html>
