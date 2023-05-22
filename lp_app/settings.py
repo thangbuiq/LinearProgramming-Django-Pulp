@@ -116,9 +116,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'assets' / 'media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles' / 'static'
-STATICFILES_DIRS = [
-	BASE_DIR / 'static',
-]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 if not DEBUG: STATICFILES_DIRS.append(MEDIA_ROOT)
 
 # Default primary key field type

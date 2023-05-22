@@ -12,7 +12,7 @@ form {
 }
 
 body {
-    background: #0069d9 no-repeat;
+    background: rgba(37, 53, 104) no-repeat;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Lato', sans-serif;
