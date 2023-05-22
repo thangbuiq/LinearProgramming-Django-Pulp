@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from lp.views import lp_solve
 
 urlpatterns = [
-    path('', views.lp_solve, name='lp_solve'),
+    path('', lp_solve),
 ]
