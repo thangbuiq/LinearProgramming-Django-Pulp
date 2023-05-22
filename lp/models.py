@@ -1,6 +1,8 @@
 from django.db import models
 from pulp import LpProblem, LpVariable, LpMinimize, LpMaximize, lpSum, value, LpStatus
 import numpy as np
+import tempfile
+import os
 class LinearProblem(models.Model):
     """
     Class representing a linear programming problem.
@@ -92,8 +94,18 @@ class LinearProblem(models.Model):
             lp_status ='-1'
             variable_values = None
             optimal_value = None
-
-        return optimal_value, variable_values, lp_status
+        # Write the LP problem to a temporary file
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file_path = temp_file.name
+            lp_problem.writeLP(temp_file_path)
+        
+        # Read the contents of the temporary file
+        with open(temp_file_path, 'r') as temp_file:
+            output_str = temp_file.read()
+        
+        # Remove the temporary file
+        os.remove(temp_file_path)
+        return optimal_value, variable_values, lp_status, output_str
 
     def display_result(self):
         """

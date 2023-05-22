@@ -84,8 +84,9 @@
     </center>
       <div class="popup">
         <button id="close">&times;</button>
-        <h2>Optimization Results</h2>
-        <p><strong>Bài toán: </strong> {{ lp_status }}</p>
+        <h2>Results</h2>
+        <pre>{{ prob_str }}</pre>
+        <p><strong>Kết quả bài toán: </strong> {{ lp_status }}</p>
         <p><strong>Giá trị tối ưu: </strong> {{ sense }} = {{ optimal_value }}</p>
         <p><strong>Nghiệm tối ưu: </strong></p>
         {% for value in variable_values %}

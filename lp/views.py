@@ -9,7 +9,7 @@ def lp_solve(request):
         bounds = request.POST.get('bounds')
 
         lp_problem = LinearProblem(objective=objective, constraints_matrix=constraints, sense=sense, bounds=bounds)
-        optimal_value, variable_values, lp_status = lp_problem.solve_problem()
+        optimal_value, variable_values, lp_status, prob_str = lp_problem.solve_problem()
         if lp_status == '1':
             status = "Tối ưu"
         elif lp_status == '-1':
@@ -24,6 +24,7 @@ def lp_solve(request):
             'lp_status': status,
             'optimal_value': optimal_value,
             'variable_values': variable_values,
+            'prob_str':prob_str
         }
         # Add the 'result' context variable to be used in form.html
         context['result'] = True

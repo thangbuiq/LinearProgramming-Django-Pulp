@@ -284,13 +284,19 @@ input[type="radio"] {
 
 .popup h2 {
     margin-top: -20px;
+    font-size: 35px;
+    font-weight: 900;
 }
 
 .popup p {
-    font-size: 14px;
+    font-size: 18px;
     text-align: justify;
     margin: 20px 0;
     line-height: 25px;
+}
+
+.popup strong {
+    font-weight: 700;
 }
 
 a {
