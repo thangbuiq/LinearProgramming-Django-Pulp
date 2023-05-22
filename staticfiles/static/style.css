@@ -256,7 +256,7 @@ input[type="radio"] {
 
     textarea {
         width: 100%;
-        height: auto;
+        height: 75%;
     }
 
     .wrapper {
@@ -265,5 +265,9 @@ input[type="radio"] {
 
     .wrapper .option {
         margin: 0 5px;
+    }
+
+    .button {
+        margin-bottom: 80px;
     }
 }
