@@ -1,18 +1,19 @@
 form {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 95vh;
     max-width: 60%;
     margin-top: 5vh;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 25px;
     justify-content: center;
     background-color: white;
     gap: 16px;
+    transform: scale(0.75);
 }
 
 body {
-    background: rgba(37, 53, 104) no-repeat;
+    background: #4070f4 no-repeat;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Lato', sans-serif;
@@ -26,16 +27,18 @@ h2 {
 }
 
 
-
 .button {
     border-radius: 12px;
     position: relative;
     background-color: #0e4bf1;
     border: none;
+    display: block;
     font-size: 18px;
+    margin-top: 5px;
     color: #FFFFFF;
     padding: 20px;
     width: 100px;
+    position: relative;
     box-sizing: border-box;
     align-items: center;
     text-align: center;
@@ -43,8 +46,11 @@ h2 {
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
 }
 
 .button:hover {
@@ -332,6 +338,7 @@ a {
     form {
         max-width: 100%;
         border-radius: 0px;
+        transform: scale(1);
     }
 
     h2 {
@@ -350,6 +357,11 @@ a {
 
     .wrapper .option {
         margin: 0 5px;
+    }
+
+    .popup {
+        border-radius: 15px;
+        width: 95%;
     }
 
     .button {
