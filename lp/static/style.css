@@ -393,4 +393,12 @@ a {
         border-radius: 15px;
         width: 95%;
     }
+
+    .button {
+        height: 25%;
+        margin-bottom: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
 }
