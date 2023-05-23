@@ -8,7 +8,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" />
     {% block css %}
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'materialize.css' %}">
       <link rel="stylesheet" href="{% static 'style.css' %}">
       <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" type="image/x-icon">
@@ -38,23 +37,28 @@
 
   <script>
     $(document).ready(function() {
-      // Initialize materialize data picker
-      $('.datepicker').datepicker({ 'format': 'yyyy-mm-dd' });
-      $('select').formSelect();
-
+      // Add even listerner for input
+      const objective = document.querySelector("#objective");
+      objective.addEventListener("keydown", function(event) {
+        console.log(event.key);
+      });
       // Add event listener to the submit button
       $('#submitBtn').click(function(event) {
         event.preventDefault(); // Prevent default form submission
-
-        // Show the popup and overlay
-        $('.popup').css('display', 'inline').css('animation','fadeIn 1s');
-        $('.overlay').addClass('show');
+      // Show the popup and overlay
+        document.querySelector(".modal").style.opacity = 1;
+        document.querySelector(".modal").style.pointerEvents = 'auto';
       });
 
       // Add event listener to the overlay close button
       $('#close').click(function() {
-        $('.popup').css('display', 'none');
-        $('.overlay').removeClass('show');
+        document.querySelector(".modal").style.opacity = 0;
+        document.querySelector(".modal").style.pointerEvents = 'none';
+      });
+      // Add event listener to the overlay finish button
+      $('#finish').click(function() {
+        document.querySelector(".modal").style.opacity = 0;
+        document.querySelector(".modal").style.pointerEvents = 'none';
       });
     });
   </script>
@@ -67,7 +71,6 @@
     </ul>
     -->
     <center>
-    <div class="overlay"></div>
     <form method="post"> 
         {% csrf_token %}
         <h2>Linear Optimization</h2>
@@ -92,6 +95,7 @@
         <input type="submit" class = "button" value="Solve">
     </form>
     </center>
+    <div class="modal">
       <div class="popup">
         <button id="close">&times;</button>
         <h2>Results</h2>
@@ -102,14 +106,15 @@
         {% for value in variable_values %}
         <span class="latex-equation">x<sub class="latex-sub">{{ forloop.counter }}</sub> = {{ value }}</span><br>
         {% endfor %}
-        <a href="/">Finish</a>
+        <a id="finish">Finish</a>
       </div>
+    </div>
     </body>
       {% if result %}
   <script type="text/javascript">
     $(document).ready(function() {
-      $('.popup').css('display', 'inline');
-      $('.overlay').addClass('show');
+        document.querySelector(".modal").style.opacity = 1;
+        document.querySelector(".modal").style.pointerEvents = 'auto';
     });
   </script>
   {% endif %}

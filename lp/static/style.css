@@ -17,8 +17,6 @@ body {
     background-size: cover;
     font-family: 'Lato', sans-serif;
     background-position: center center;
-    margin: auto;
-    zoom: auto;
     -webkit-user-select: none;
     /* Safari */
     -ms-user-select: none;
@@ -47,7 +45,7 @@ span {
     margin-top: 5px;
     margin-bottom: 5px;
     color: #FFFFFF;
-    padding: 20px;
+    padding: 16px 20px;
     width: 100px;
     position: relative;
     box-sizing: border-box;
@@ -273,16 +271,10 @@ input[type="radio"] {
     background-color: #ffffff;
     width: 420px;
     padding: 30px 40px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
     border-radius: 16px;
     font-family: "Lato", sans-serif;
-    display: none;
     text-align: center;
     z-index: 999;
-    transition: display 0.3s ease-in-out;
 }
 
 .popup button {
@@ -338,11 +330,37 @@ a {
     display: none;
     left: 0;
     z-index: 998;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
 }
 
 .overlay.show {
     display: block;
+}
+
+.modal {
+    position: fixed;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Mobile Devices */
@@ -374,15 +392,5 @@ a {
     .popup {
         border-radius: 15px;
         width: 95%;
-    }
-
-    .button {
-        margin-bottom: 25px;
-        height: 35%;
-        /* other, unchanged, CSS */
-        /* <- changed this */
-        align-items: center;
-        text-align: center;
-        margin-bottom: 10px;
     }
 }
