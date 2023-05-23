@@ -9,7 +9,7 @@ form {
     justify-content: center;
     background-color: white;
     gap: 16px;
-    transform: scale(0.75);
+    transform: scale(0.8);
 }
 
 body {
@@ -35,6 +35,7 @@ h2 {
     display: block;
     font-size: 18px;
     margin-top: 5px;
+    margin-bottom: 5px;
     color: #FFFFFF;
     padding: 20px;
     width: 100px;
@@ -371,5 +372,6 @@ a {
         /* <- changed this */
         align-items: center;
         text-align: center;
+        margin-bottom: 10px;
     }
 }

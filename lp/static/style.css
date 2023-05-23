@@ -1,15 +1,14 @@
 form {
     display: flex;
     flex-direction: column;
-    height: 95vh;
-    max-width: 60%;
-    margin-top: 5vh;
+    height: 100vh;
+    max-width: 50%;
     align-items: center;
     border-radius: 25px;
     justify-content: center;
     background-color: white;
-    gap: 16px;
-    transform: scale(0.75);
+    gap: 18px;
+    transform: scale(0.8);
 }
 
 body {
@@ -20,6 +19,12 @@ body {
     background-position: center center;
     margin: auto;
     zoom: auto;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 h2 {
@@ -35,6 +40,7 @@ h2 {
     display: block;
     font-size: 18px;
     margin-top: 5px;
+    margin-bottom: 5px;
     color: #FFFFFF;
     padding: 20px;
     width: 100px;
@@ -187,6 +193,7 @@ input[type="text"]:valid {
     border-radius: 5px;
     padding: 20px 15px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
 }
 
 .wrapper .option {
@@ -371,5 +378,6 @@ a {
         /* <- changed this */
         align-items: center;
         text-align: center;
+        margin-bottom: 10px;
     }
 }
