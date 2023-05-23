@@ -1,14 +1,13 @@
 form {
     display: flex;
     flex-direction: column;
-    height: 95vh;
-    max-width: 60%;
-    margin-top: 5vh;
+    height: 100vh;
+    max-width: 50%;
     align-items: center;
     border-radius: 25px;
     justify-content: center;
     background-color: white;
-    gap: 16px;
+    gap: 18px;
     transform: scale(0.8);
 }
 
@@ -20,12 +19,23 @@ body {
     background-position: center center;
     margin: auto;
     zoom: auto;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 h2 {
     font-style: bold;
 }
 
+span {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
 
 .button {
     border-radius: 12px;
@@ -188,6 +198,7 @@ input[type="text"]:valid {
     border-radius: 5px;
     padding: 20px 15px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
 }
 
 .wrapper .option {
