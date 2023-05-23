@@ -3,7 +3,7 @@
 <html lang="en">
   <head>  
     <title>Linear Optimization Solver</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta property="og:title" content="Linear Optimization Solver &amp; A Project From HCMUS's Students" />
     <meta property="og:type" content="website" />
     <meta property="og:image" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" />
@@ -11,10 +11,21 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'materialize.css' %}">
       <link rel="stylesheet" href="{% static 'style.css' %}">
-      {% endblock css %}
       <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" type="image/x-icon">
-    <style>
-    </style>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+      <style>
+        .latex-equation {
+          font-family: "Computer Modern Serif", serif;
+          font-size: 20px;
+          text-align: center;
+        }        
+        .latex-sub {
+          font-family: "Computer Modern Serif", serif;
+          font-size: 15px;
+          text-align: center;
+        }
+      </style>
+    {% endblock css %}
     </head>
 <body >
   {% block javascript %}
@@ -59,7 +70,7 @@
     <div class="overlay"></div>
     <form method="post"> 
         {% csrf_token %}
-        <h2>Optimization Problem</h2>
+        <h2>Linear Optimization</h2>
         <div class="wrapper">
         <input type="radio" name="sense" id="option-1" value="min" checked>
         <input type="radio" name="sense" id="option-2" value="max">
@@ -72,11 +83,11 @@
               <span>Maximize</span>
           </label>
         </div>
-        <label for="objective">Objective:</label> 
+        <label for="objective">Hàm mục tiêu:</label> 
         <input type="text" name="objective" id="objective" placeholder="c1 c2" required>
-        <label for="constraints">Constraints:</label> 
+        <label for="constraints">Ràng buộc điều kiện:</label> 
         <textarea name="constraints" class="textarea" id="constraints" rows="5" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea>
-        <label for="bounds">Bounds:</label> 
+        <label for="bounds">Ràng buộc dấu:</label> 
         <input type="text" name="bounds" id="bounds" placeholder=">= <= (x1 >= 0 and x2 <= 0)" required>
         <input type="submit" class = "button" value="Solve">
     </form>
@@ -86,13 +97,13 @@
         <h2>Results</h2>
         <pre>{{ prob_str }}</pre>
         <p><strong>Kết quả bài toán: </strong> {{ lp_status }}</p>
-        <p><strong>Giá trị tối ưu: </strong> {{ sense }} = {{ optimal_value }}</p>
+        <p><strong>Giá trị tối ưu:  </strong> <span class="latex-equation">{{ sense }}(z) = {{ optimal_value }}</span></p>
         <p><strong>Nghiệm tối ưu: </strong></p>
         {% for value in variable_values %}
-        <p><strong>x_{{ forloop.counter}}: {{ value }}</strong></p>
+        <span class="latex-equation">x<sub class="latex-sub">{{ forloop.counter }}</sub> = {{ value }}</span><br>
         {% endfor %}
-        <a href="/">OK</a>
-    </div>
+        <a href="/">Finish</a>
+      </div>
     </body>
       {% if result %}
   <script type="text/javascript">

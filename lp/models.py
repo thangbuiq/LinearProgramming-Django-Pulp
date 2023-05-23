@@ -1,6 +1,5 @@
 from django.db import models
 from pulp import LpProblem, LpVariable, LpMinimize, LpMaximize, lpSum, value, LpStatus
-import numpy as np
 import tempfile
 import os
 class LinearProblem(models.Model):
@@ -87,9 +86,9 @@ class LinearProblem(models.Model):
             lp_status = '-2'
             variable_values= None
             if (sense == LpMinimize):
-                optimal_value = -np.inf
+                optimal_value = "-∞"
             else:
-                optimal_value = np.inf
+                optimal_value = "+∞"
         elif (status == 'Infeasible'):
             lp_status ='-1'
             variable_values = None

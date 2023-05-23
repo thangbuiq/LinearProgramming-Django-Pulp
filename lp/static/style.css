@@ -31,6 +31,11 @@ h2 {
     font-style: bold;
 }
 
+span {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
 
 .button {
     border-radius: 12px;
