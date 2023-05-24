@@ -13,7 +13,7 @@ To run the Linear Programming Project locally, follow these steps:
 1. Clone the repository:
 
 ```shell=
-git clone https://github.com/thangbuiq/LinearProgramming-Django-Pulp
+git clone https://github.com/thangbuiq/LinearProgramming-Django-Pulp.git
 ```
 2. Navigate to the project directory:
 ```shell=
