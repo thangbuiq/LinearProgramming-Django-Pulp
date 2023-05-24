@@ -2,11 +2,11 @@
 
 This repository contains a **Linear Programming** project implemented using **PuLP** as the modeling library in **Python**. The project also utilizes **Django** as the backend framework and is hosted on **Vercel**.
 
-## Description
+## :question: Description
 
 It leverages the **PuLP** library in `Python` to create mathematical models and solve linear programming problems efficiently. The project is built with a **Django** backend, which provides a robust and flexible web application framework. The application allows users to define their optimization problems, input the necessary constraints and objectives, and obtain optimal solutions.
 
-## Installation
+## :feet: Installation
 
 To run the Linear Programming Project locally, follow these steps:
 
