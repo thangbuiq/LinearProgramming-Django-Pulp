@@ -15,6 +15,10 @@
             "config": {
                 "distDir": "staticfiles"
             }
+        },
+        {
+            "src": "package.json",
+            "use": "vercel-sapper"
         }
     ],
     "routes": [
