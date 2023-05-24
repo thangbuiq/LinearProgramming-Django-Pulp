@@ -79,9 +79,17 @@
     <ul>
       <li><a class="active" href="/">Home</a></li>
       <li><a href="#input">Input Another Problem</a></li>
-      <li><a href="#about">About Us</a></li>
+      <li><a href="#about">About Us </a></li>
     </ul>
     -->
+    <div class="overlay"></div>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a> Tôi đang đau lưng điên cuồng giữa 2 giờ sáng </a>
+    </div>
+    <div id="main">
+      <button class="openbtn" onclick="openNav()"> ❓ </button>  
+    </div>
     <center>
     <form method="post"> 
         {% csrf_token %}
@@ -121,6 +129,21 @@
         <a id="finish">Finish</a>
       </div>
     </div>
+    <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.querySelector(".overlay").style.opacity = 1;
+      document.querySelector(".overlay").style.pointerEvents = 'auto';
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.querySelector(".overlay").style.opacity = 0;
+      document.querySelector(".overlay").style.pointerEvents = 'none';
+    }
+    </script>
     </body>
       {% if result %}
   <script type="text/javascript">
