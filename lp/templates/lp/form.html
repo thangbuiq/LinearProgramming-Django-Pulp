@@ -10,6 +10,7 @@
     {% block css %}
       <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
       <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
       <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/268234/isolated/preview/31fd7ceaf4c4e7678c2476ef2b597d25-pi-symbol-math-icon.png" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
       <style>
@@ -37,10 +38,24 @@
 
   <script>
     $(document).ready(function() {
-      // Add even listerner for input
-      const objective = document.querySelector("#objective");
-      objective.addEventListener("keydown", function(event) {
-        console.log(event.key);
+      // Add event listener to the input
+      $('#objective').on('keydown', function (event) {
+          var key = event.key;
+          var regex = /^[0-9.+\-]$/.test(key);
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Tab' || regex;
+          if (!isAllowed) {
+              event.preventDefault();
+              return false;
+          }
+      });
+      $('#constraints').on('keydown', function (event) {
+          var key = event.key;
+          var regex = /^[0-9.<>=+\-]$/.test(key);
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Tab' || regex;
+          if (!isAllowed) {
+              event.preventDefault();
+              return false;
+          }
       });
       // Add event listener to the submit button
       $('#submitBtn').click(function(event) {
@@ -99,7 +114,7 @@
       <div class="popup">
         <button id="close">&times;</button>
         <h2>Results</h2>
-        <pre>{{ prob_str }}</pre>
+        <pre style="font-family:'JetBrains Mono';">{{ prob_str }}</pre>
         <p><strong>Kết quả bài toán: </strong> {{ lp_status }}</p>
         <p><strong>Giá trị tối ưu:  </strong> <span class="latex-equation">{{ sense }}(z) = {{ optimal_value }}</span></p>
         <p><strong>Nghiệm tối ưu: </strong></p>
