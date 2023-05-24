@@ -21,6 +21,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('lp.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+]
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
