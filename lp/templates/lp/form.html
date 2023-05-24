@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
       <link rel="stylesheet" href="{% static 'css/style.css' %}">
       <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
-      <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+      <link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
       <style>
         .latex-equation {
@@ -112,9 +112,9 @@
         <button id="close">&times;</button>
         <h2>Results</h2>
         <pre style="font-family:'JetBrains Mono';">{{ prob_str }}</pre>
-        <p><strong>Kết quả bài toán: </strong> {{ lp_status }}</p>
+        <p><strong>Kết quả bài toán:  </strong> <span class="latex-equation">{{ lp_status }}</span></p>
         <p><strong>Giá trị tối ưu:  </strong> <span class="latex-equation">{{ sense }}(z) = {{ optimal_value }}</span></p>
-        <p><strong>Nghiệm tối ưu: </strong></p>
+        <p><strong>Nghiệm tối ưu:  </strong></p>
         {% for value in variable_values %}
         <span class="latex-equation">x<sub class="latex-sub">{{ forloop.counter }}</sub> = {{ value }}</span><br>
         {% endfor %}
