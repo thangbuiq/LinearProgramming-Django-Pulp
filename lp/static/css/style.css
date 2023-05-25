@@ -366,7 +366,7 @@ input[type="radio"] {
 }
 
 .sidebar {
-    width: 0;
+    width: 350px;
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -381,18 +381,21 @@ input[type="radio"] {
     max-width: 50%;
     align-items: left;
     border-radius: 0 25px 25px 0;
-    justify-content: left;
+    justify-content: center;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-96%, -50%);
     gap: 16px;
 }
 
-.sidebar a {
-    padding: 8px 8px 8px 32px;
+.sidebar a,
+p {
+    padding: 10px 32px 15px 15px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
+    font-size: 15px;
+    color: #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 0.3s;
 }
 
@@ -403,7 +406,7 @@ input[type="radio"] {
 .sidebar .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 1%;
     font-size: 36px;
     margin-left: 50px;
     cursor: pointer;
@@ -412,9 +415,10 @@ input[type="radio"] {
 .openbtn {
     font-size: 20px;
     cursor: pointer;
+    margin-left: 15%;
     background-color: rgb(166, 154, 179);
     color: white;
-    border-radius: 20px;
+    border-radius: 25px;
     padding: 10px 15px;
     border: none;
 }
@@ -425,13 +429,13 @@ input[type="radio"] {
 }
 
 #main {
-    transition: margin-left .5s;
     padding: 16px;
     overflow-x: hidden;
     top: 20%;
     transform: translateY(-50%);
     position: fixed;
     text-decoration: none;
+    transition: margin-left .5s;
 }
 
 .alert {
@@ -445,9 +449,8 @@ input[type="radio"] {
     display: flex;
     z-index: 998;
     border-radius: 0 25px 25px 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transform: translateX(-100%);
+    transition: 1s;
 }
 
 .alert .closebtn {

@@ -54,6 +54,15 @@
                 return false;
             }
         });
+        $('#bounds').on('keydown', function (event) {
+            var key = event.key;
+            var regex = /^[<>=fredom]$/.test(key);
+            var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
+            if (!isAllowed) {
+                event.preventDefault();
+                return false;
+            }
+        });
         // Add event listener to the submit button
         $('#submitBtn').click(function(event) {
           event.preventDefault(); // Prevent default form submission
@@ -75,29 +84,30 @@
         // Add event listener to the alert notification
         $('#submitBtn').click(function(event) {
           event.preventDefault(); // Prevent default form submission
-          document.querySelector(".alert").style.opacity = 1;
-          document.querySelector(".alert").style.pointerEvents = 'auto';
-          document.getElementById("mySidebar").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
+          document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
+          document.getElementById("openbtn").style.marginLeft = "0";
+          document.getElementById("openbtn").style.opacity = 0.5;
+          document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
+          document.getElementById("main").style.marginLeft = "350px";
         });
       });
     </script>
     <script>
       setTimeout(function() {
-        document.getElementById('alertDiv').style.opacity = 0;
+        document.getElementById('alertDiv').style.transform = "translate(-100%, 0%)";
       }, 2500);
     </script>
   {% endblock javascript %}
     <div class="alert" id="alertDiv">
       <strong>Nhập sai định dạng yêu cầu!</strong>
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <span class="closebtn" onclick="this.parentElement.style.transform = 'translate(-100%, 0%)';">&times;</span> 
     </div>
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a> ụm pòa </a>
+      <p id="bartext"> kontrimnonkontrimnonkontrimnon </p>
     </div>
     <div id="main">
-      <button class="openbtn" onclick="openNav()"> <span> ? </span> </button>  
+      <button class="openbtn" id="openbtn" onclick="openNav()"> <span> ? </span> </button>  
     </div>
     <center>
     <form method="post"> 
@@ -140,23 +150,28 @@
     </div>
     <script>
     function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
+      document.getElementById("openbtn").style.marginLeft = "0";
+      document.getElementById("openbtn").style.opacity = 0.5;
+      document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
+      document.getElementById("main").style.marginLeft = "350px";
     }
 
     function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("mySidebar").style.transform = "translate(-96%, -50%)";
       document.getElementById("main").style.marginLeft= "0";
+      document.getElementById("openbtn").style.marginLeft = "10%";
+      document.getElementById("openbtn").style.opacity = 1;
     }
     </script>
     </body>
     {% if match %}
     <script type="text/javascript">
       $(document).ready(function() {
-          document.querySelector(".alert").style.opacity = 1;
-          document.querySelector(".alert").style.pointerEvents = 'auto';
-          document.getElementById("mySidebar").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
+          document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
+          document.getElementById("openbtn").style.marginLeft = "0";
+          document.getElementById("openbtn").style.opacity = 0.5;
+          document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
+          document.getElementById("main").style.marginLeft = "350px";
       });
     </script>
     {% endif %}
