@@ -3,7 +3,13 @@ from django.contrib import messages
 from .models import LinearProblem
 
 def lp_solve(request):
-    
+    """
+    This function solve the linear problem from the request
+    Args:
+        request : using request to get the user input
+    Returns:
+        render a website using form.html
+    """
     if request.method == 'POST':
         objective = request.POST.get('objective')
         constraints = request.POST.get('constraints')

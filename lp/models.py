@@ -18,7 +18,7 @@ class LinearProblem(models.Model):
     """
     objective = models.TextField()
     constraints_matrix = models.TextField()
-    sense = models.CharField(max_length=10)
+    sense = models.CharField(max_length=10) 
     bounds = models.TextField()
     def solve_problem(self):
         """
@@ -36,7 +36,6 @@ class LinearProblem(models.Model):
         bounds = [str(val) for val in self.bounds.split()]
         n_variables = len(objective)
         n_constraints = len(constraints_matrix)
-
         lp_problem = LpProblem("Linear_Programming_Problem", sense)
         """
         variables = [LpVariable(f"x_{i+1}", lowBound=0) for i in range(n_variables)]
