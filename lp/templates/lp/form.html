@@ -39,7 +39,7 @@
       $('#objective').on('keydown', function (event) {
           var key = event.key;
           var regex = /^[0-9.+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Tab' || (event.ctrlKey && key === 'a') || regex;
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || regex;
           if (!isAllowed) {
               event.preventDefault();
               return false;
@@ -48,7 +48,7 @@
       $('#constraints').on('keydown', function (event) {
           var key = event.key;
           var regex = /^[0-9.<>=+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Tab' || (event.ctrlKey && key === 'a') || regex;
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || regex;
           if (!isAllowed) {
               event.preventDefault();
               return false;
@@ -75,13 +75,6 @@
     });
   </script>
     {% endblock javascript %}
-    <!--
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-      <li><a href="#input">Input Another Problem</a></li>
-      <li><a href="#about">About Us </a></li>
-    </ul>
-    -->
     <div class="overlay"></div>
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -120,7 +113,7 @@
         <button id="close">&times;</button>
         <h2>Results</h2>
         <pre style="font-family:'JetBrains Mono';">{{ prob_str }}</pre>
-        <p><strong>Kết quả bài toán:  </strong> <span class="latex-equation">{{ lp_status }}</span></p>
+        <p><strong>Kết quả bài toán:  </strong> <span>{{ lp_status }}</span></p>
         <p><strong>Giá trị tối ưu:  </strong> <span class="latex-equation">{{ sense }}(z) = {{ optimal_value }}</span></p>
         <p><strong>Nghiệm tối ưu:  </strong></p>
         {% for value in variable_values %}
@@ -146,11 +139,11 @@
     </script>
     </body>
       {% if result %}
-  <script type="text/javascript">
-    $(document).ready(function() {
-        document.querySelector(".modal").style.opacity = 1;
-        document.querySelector(".modal").style.pointerEvents = 'auto';
-    });
-  </script>
-  {% endif %}
+      <script type="text/javascript">
+        $(document).ready(function() {
+            document.querySelector(".modal").style.opacity = 1;
+            document.querySelector(".modal").style.pointerEvents = 'auto';
+        });
+      </script>
+      {% endif %}
 </html>

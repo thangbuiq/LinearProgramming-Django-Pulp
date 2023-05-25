@@ -37,7 +37,6 @@ class LinearProblem(models.Model):
         n_variables = len(objective)
         n_constraints = len(constraints_matrix)
 
-
         lp_problem = LpProblem("Linear_Programming_Problem", sense)
         """
         variables = [LpVariable(f"x_{i+1}", lowBound=0) for i in range(n_variables)]
@@ -50,8 +49,11 @@ class LinearProblem(models.Model):
                 variables.append(LpVariable(f"x_{i+1}", lowBound=0))
             elif bound == '<=':
                 variables.append(LpVariable(f"x_{i+1}", upBound=0))
-            else:
+            elif bound in ['free', 'f', 'freedom']:
                 variables.append(LpVariable(f"x_{i+1}"))
+            else:
+                return None
+
         objective_ = lpSum(objective[i] * variables[i] for i in range(n_variables))
         lp_problem.setObjective(objective_)
 
@@ -63,8 +65,10 @@ class LinearProblem(models.Model):
                 lp_problem.addConstraint(constraint <= rhs)
             elif operator == ">=":
                 lp_problem.addConstraint(constraint >= rhs)
-            else:
+            elif operator == "=" or operator == "==":
                 lp_problem.addConstraint(constraint == rhs)
+            else:
+                return None
 
         lp_problem.solve()
         status = LpStatus[lp_problem.status]
@@ -106,7 +110,26 @@ class LinearProblem(models.Model):
         os.remove(temp_file_path)
         return optimal_value, variable_values, lp_status, output_str.replace('\nEnd','').replace("\\* Linear_Programming_Problem *\\", "")
 
-    def display_result(self):
+    def input_match(self):
+        objective = [float(val) for val in self.objective.split()]
+        constraints = self.constraints_matrix.split('\n')
+        constraints_matrix = [c.split() for c in constraints if c.strip()]
+        bounds = [str(val) for val in self.bounds.split()]
+        n_variables = len(objective)
+        n_constraints = len(constraints_matrix)
+        """
+        Check for numbers of the matching of variables.
+        """
+        if n_constraints == 0:
+            return False
+        if n_variables != len(bounds):
+            return False
+        for constraint in constraints_matrix:
+            if (len(constraint) != n_variables + 2):
+                return False
+        # Return True by default
+        return True
+    def display_result(self): # Using only for testing in console
         """
         Solve the linear programming problem and display the results.
         """

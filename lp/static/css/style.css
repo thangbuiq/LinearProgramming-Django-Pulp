@@ -1,5 +1,5 @@
 body {
-    background: #4D588F no-repeat;
+    background: #737ccf no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -143,37 +143,6 @@ textarea:valid {
     outline-width: 0;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-li a.active {
-    background-color: rgba(108, 142, 255, 0.8);
-}
-
 input[type="text"] {
     outline: none;
     padding: 5px 15px;
@@ -191,6 +160,7 @@ input[type="text"] {
         'Helvetica Neue',
         sans-serif;
     font-size: 20px;
+    cursor: pointer;
     border: 1.5px solid #C7BEBE;
     border-width: 2.5px;
     border-radius: 8px;
@@ -367,6 +337,7 @@ input[type="radio"] {
     color: #ffffff;
     text-decoration: none;
     padding: 8px 0;
+    cursor: pointer;
 }
 
 .overlay {
@@ -459,6 +430,7 @@ input[type="radio"] {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    cursor: pointer;
 }
 
 .openbtn {
@@ -482,7 +454,6 @@ input[type="radio"] {
     top: 20%;
     transform: translateY(-50%);
     position: fixed;
-    overflow-x: hidden;
     text-decoration: none;
 }
 

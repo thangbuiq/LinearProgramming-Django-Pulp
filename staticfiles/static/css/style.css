@@ -1,5 +1,5 @@
 body {
-    background: #4D588F no-repeat;
+    background: #ccc no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,7 +31,7 @@ form {
     border-radius: 25px;
     justify-content: center;
     background-color: white;
-    gap: 18px;
+    gap: 16px;
     transform: scale(0.9);
 }
 
@@ -46,7 +46,7 @@ span {
 }
 
 .button {
-    border-radius: 12px;
+    border-radius: 20px;
     position: relative;
     background-color: #737ccf;
     border: none;
@@ -55,7 +55,8 @@ span {
     margin-top: 5px;
     color: #FFFFFF;
     padding: 16px 20px;
-    width: 100px;
+    width: 120px;
+    height: 7%;
     position: relative;
     box-sizing: border-box;
     align-items: center;
@@ -69,7 +70,7 @@ span {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     outline: none;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .button:hover {
@@ -109,7 +110,6 @@ textarea {
     width: 500px;
     min-height: 40px;
     height: 100px;
-    opacity: 0.75;
     background-repeat: no-repeat;
     cursor: pointer;
     background-position: center;
@@ -128,7 +128,7 @@ textarea {
         'Helvetica Neue',
         sans-serif;
     font-size: 20px;
-    line-height: 1.4em;
+    line-height: 1em;
     padding: 5px 8px;
     transition: background-color 0.2s ease 0s;
     resize: vertical;
@@ -138,40 +138,9 @@ textarea {
 textarea:focus,
 textarea:valid {
     color: rgba(37, 53, 104);
-    border-color: #4070f4;
+    border-color: #6070ff;
     background: none repeat scroll 0 0 #FFFFFF;
     outline-width: 0;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-li a.active {
-    background-color: rgba(108, 142, 255, 0.8);
 }
 
 input[type="text"] {
@@ -200,7 +169,7 @@ input[type="text"] {
 input[type="text"]:focus,
 input[type="text"]:valid {
     color: rgba(37, 53, 104);
-    border-color: #4070f4;
+    border-color: #6070ff;
     background: none repeat scroll 0 0 #FFFFFF;
     outline-width: 0;
 }
@@ -229,7 +198,7 @@ input[type="text"]:valid {
     width: 400px;
     align-items: center;
     justify-content: space-evenly;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px 15px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
     margin-top: 5px;
@@ -356,7 +325,7 @@ input[type="radio"] {
     font-weight: 700;
 }
 
-a {
+.modal a {
     display: block;
     width: 150px;
     position: relative;
@@ -370,21 +339,6 @@ a {
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
-    left: 0;
-    z-index: 998;
-    background: #00000080;
-}
-
-.overlay.show {
-    display: block;
-}
-
-.modal {
     position: fixed;
     margin: 0;
     max-height: 100%;
@@ -405,9 +359,110 @@ a {
     transition: opacity 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-.modal.show {
+.modal,
+.overlay {
+    position: fixed;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.modal.show,
+.overlay.show {
     opacity: 1;
     pointer-events: auto;
+}
+
+.sidebar {
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-width: 50%;
+    align-items: left;
+    border-radius: 0 25px 25px 0;
+    justify-content: left;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 16px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white-smoke;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    overflow-x: hidden;
+    top: 20%;
+    transform: translateY(-50%);
+    position: fixed;
+    text-decoration: none;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
 }
 
 /* Mobile Devices */
