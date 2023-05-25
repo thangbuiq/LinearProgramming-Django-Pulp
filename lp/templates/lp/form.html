@@ -39,7 +39,7 @@
       $('#objective').on('keydown', function (event) {
           var key = event.key;
           var regex = /^[0-9.+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || regex;
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
           if (!isAllowed) {
               event.preventDefault();
               return false;
@@ -48,7 +48,7 @@
       $('#constraints').on('keydown', function (event) {
           var key = event.key;
           var regex = /^[0-9.<>=+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || regex;
+          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
           if (!isAllowed) {
               event.preventDefault();
               return false;
