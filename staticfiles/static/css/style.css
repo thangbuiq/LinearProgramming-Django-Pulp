@@ -1,5 +1,5 @@
 body {
-    background: #ccc no-repeat;
+    background: #737ccf no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -160,6 +160,7 @@ input[type="text"] {
         'Helvetica Neue',
         sans-serif;
     font-size: 20px;
+    cursor: pointer;
     border: 1.5px solid #C7BEBE;
     border-width: 2.5px;
     border-radius: 8px;
@@ -336,6 +337,7 @@ input[type="radio"] {
     color: #ffffff;
     text-decoration: none;
     padding: 8px 0;
+    cursor: pointer;
 }
 
 .overlay {
@@ -428,6 +430,7 @@ input[type="radio"] {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    cursor: pointer;
 }
 
 .openbtn {
@@ -452,6 +455,36 @@ input[type="radio"] {
     transform: translateY(-50%);
     position: fixed;
     text-decoration: none;
+}
+
+.alert {
+    position: fixed;
+    overflow-x: hidden;
+    padding: 20px;
+    float: right;
+    background-color: #f44336;
+    color: white;
+    display: flex;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.alert .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    ;
+}
+
+.alert .closebtn:hover {
+    color: black;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

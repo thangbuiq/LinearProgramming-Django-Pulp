@@ -50,8 +50,6 @@ class LinearProblem(models.Model):
                 variables.append(LpVariable(f"x_{i+1}", upBound=0))
             elif bound in ['free', 'f', 'freedom']:
                 variables.append(LpVariable(f"x_{i+1}"))
-            else:
-                return None
 
         objective_ = lpSum(objective[i] * variables[i] for i in range(n_variables))
         lp_problem.setObjective(objective_)
@@ -66,8 +64,6 @@ class LinearProblem(models.Model):
                 lp_problem.addConstraint(constraint >= rhs)
             elif operator == "=" or operator == "==":
                 lp_problem.addConstraint(constraint == rhs)
-            else:
-                return None
 
         lp_problem.solve()
         status = LpStatus[lp_problem.status]
@@ -120,14 +116,22 @@ class LinearProblem(models.Model):
         Check for numbers of the matching of variables.
         """
         if n_constraints == 0:
-            return False
+            return True
         if n_variables != len(bounds):
-            return False
+            return True
         for constraint in constraints_matrix:
             if (len(constraint) != n_variables + 2):
-                return False
-        # Return True by default
-        return True
+                return True
+        for index in range(n_constraints):
+            operator = constraints_matrix[index][-2]
+            if operator not in ["<=", ">=", "=", "=="]:
+                return True
+        for bound in bounds:
+            if bound not in ["<=", ">=", "free", "f", "freedom"]:
+                return True
+        
+        # Return False by default
+        return False
     def display_result(self): # Using only for testing in console
         """
         Solve the linear programming problem and display the results.

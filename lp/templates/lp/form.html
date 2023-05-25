@@ -33,55 +33,65 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
 
-  <script>
-    $(document).ready(function() {
-      // Add event listener to the input
-      $('#objective').on('keydown', function (event) {
-          var key = event.key;
-          var regex = /^[0-9.+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
-          if (!isAllowed) {
-              event.preventDefault();
-              return false;
-          }
-      });
-      $('#constraints').on('keydown', function (event) {
-          var key = event.key;
-          var regex = /^[0-9.<>=+\-]$/.test(key);
-          var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
-          if (!isAllowed) {
-              event.preventDefault();
-              return false;
-          }
-      });
-      // Add event listener to the submit button
-      $('#submitBtn').click(function(event) {
-        event.preventDefault(); // Prevent default form submission
-      // Show the popup and overlay
-        document.querySelector(".modal").style.opacity = 1;
-        document.querySelector(".modal").style.pointerEvents = 'auto';
-      });
+    <script>
+      $(document).ready(function() {
+        // Add event listener to the input
+        $('#objective').on('keydown', function (event) {
+            var key = event.key;
+            var regex = /^[0-9.+\-]$/.test(key);
+            var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
+            if (!isAllowed) {
+                event.preventDefault();
+                return false;
+            }
+        });
+        $('#constraints').on('keydown', function (event) {
+            var key = event.key;
+            var regex = /^[0-9.<>=+\-]$/.test(key);
+            var isAllowed = key === 'Backspace' || key === ' ' || key === 'Enter' || key === 'Tab' || (event.ctrlKey && key === 'a') || (event.ctrlKey && key === 'v') || (event.ctrlKey && key === 'c') || (event.ctrlKey && key === 'x') || regex;
+            if (!isAllowed) {
+                event.preventDefault();
+                return false;
+            }
+        });
+        // Add event listener to the submit button
+        $('#submitBtn').click(function(event) {
+          event.preventDefault(); // Prevent default form submission
+        // Show the popup and overlay
+          document.querySelector(".modal").style.opacity = 1;
+          document.querySelector(".modal").style.pointerEvents = 'auto';
+        });
 
-      // Add event listener to the overlay close button
-      $('#close').click(function() {
-        document.querySelector(".modal").style.opacity = 0;
-        document.querySelector(".modal").style.pointerEvents = 'none';
+        // Add event listener to the overlay close button
+        $('#close').click(function() {
+          document.querySelector(".modal").style.opacity = 0;
+          document.querySelector(".modal").style.pointerEvents = 'none';
+        });
+        // Add event listener to the overlay finish button
+        $('#finish').click(function() {
+          document.querySelector(".modal").style.opacity = 0;
+          document.querySelector(".modal").style.pointerEvents = 'none';
+        });
+        // Add event listener to the alert notification
+        $('#submitBtn').click(function(event) {
+          event.preventDefault(); // Prevent default form submission
+          document.querySelector(".alert").style.opacity = 1;
+          document.querySelector(".alert").style.pointerEvents = 'auto';
+        });
       });
-      // Add event listener to the overlay finish button
-      $('#finish').click(function() {
-        document.querySelector(".modal").style.opacity = 0;
-        document.querySelector(".modal").style.pointerEvents = 'none';
-      });
-    });
-  </script>
-    {% endblock javascript %}
+    </script>
+  {% endblock javascript %}
     <div class="overlay"></div>
+    <div class="alert">
+      <strong>Nhập sai!</strong> Xin vui lòng nhập đúng định dạng yêu cầu.
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a> Tôi đang đau lưng điên cuồng giữa 2 giờ sáng </a>
+      <a> ụm pòa </a>
     </div>
     <div id="main">
-      <button class="openbtn" onclick="openNav()"> ❓ </button>  
+      <button class="openbtn" onclick="openNav()"> <span> ? </span> </button>  
     </div>
     <center>
     <form method="post"> 
@@ -138,12 +148,21 @@
     }
     </script>
     </body>
-      {% if result %}
-      <script type="text/javascript">
-        $(document).ready(function() {
-            document.querySelector(".modal").style.opacity = 1;
-            document.querySelector(".modal").style.pointerEvents = 'auto';
-        });
-      </script>
-      {% endif %}
+    {% if match %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+          document.querySelector(".alert").style.opacity = 1;
+          document.querySelector(".alert").style.pointerEvents = 'auto';
+      });
+    </script>
+    {% endif %}
+
+    {% if result %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+          document.querySelector(".modal").style.opacity = 1;
+          document.querySelector(".modal").style.pointerEvents = 'auto';
+      });
+    </script>
+    {% endif %}
 </html>

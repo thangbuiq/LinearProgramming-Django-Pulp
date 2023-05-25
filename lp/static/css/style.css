@@ -1,5 +1,5 @@
 body {
-    background: #737ccf no-repeat;
+    background: rgba(145, 121, 143) no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,7 +48,7 @@ span {
 .button {
     border-radius: 20px;
     position: relative;
-    background-color: #737ccf;
+    background-color: rgba(145, 121, 143);
     border: none;
     display: block;
     font-size: 18px;
@@ -235,7 +235,7 @@ input[type="text"]:valid {
     left: 4px;
     width: 12px;
     height: 12px;
-    background: #737ccf;
+    background: rgba(145, 121, 143);
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
@@ -248,8 +248,8 @@ input[type="radio"] {
 
 #option-1:checked:checked~.option-1,
 #option-2:checked:checked~.option-2 {
-    border-color: #737ccf;
-    background: #737ccf;
+    border-color: rgba(145, 121, 143);
+    background: rgba(145, 121, 143);
 }
 
 #option-1:checked:checked~.option-1 .dot,
@@ -332,7 +332,7 @@ input[type="radio"] {
     position: relative;
     margin: 10px auto;
     text-align: center;
-    background-color: #737ccf;
+    background-color: rgba(145, 121, 143);
     border-radius: 20px;
     color: #ffffff;
     text-decoration: none;
@@ -436,7 +436,7 @@ input[type="radio"] {
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: white-smoke;
+    background-color: #949fff;
     color: white;
     border-radius: 20px;
     padding: 10px 15px;
@@ -456,6 +456,37 @@ input[type="radio"] {
     position: fixed;
     text-decoration: none;
 }
+
+.alert {
+    position: fixed;
+    overflow-x: hidden;
+    padding: 20px;
+    float: right;
+    background-color: #f44336;
+    color: white;
+    display: flex;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.alert .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    ;
+}
+
+.alert .closebtn:hover {
+    color: black;
+}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
