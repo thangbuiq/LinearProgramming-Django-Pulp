@@ -425,6 +425,8 @@ input[type="radio"] {
     border-radius: 25px;
     padding: 10px 15px;
     border: none;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 .openbtn:hover,
@@ -467,7 +469,6 @@ input[type="radio"] {
     line-height: 20px;
     cursor: pointer;
     transition: opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    ;
 }
 
 .alert .closebtn:hover {

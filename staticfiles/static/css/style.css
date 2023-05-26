@@ -373,7 +373,7 @@ input[type="radio"] {
     left: 0;
     background-color: white;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 1s;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -387,20 +387,25 @@ input[type="radio"] {
     gap: 16px;
 }
 
-.sidebar a,
-p {
-    padding: 10px 32px 15px 15px;
-    text-decoration: none;
+.sidebar a {
+    padding: 15px 30px 15px 15px;
     font-size: 15px;
     color: #3d3d3d;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .5s;
+    text-align: center;
 }
 
 .sidebar a:hover {
     color: #f1f1f1;
+}
+
+.sidebar .content {
+    padding: 15px 15px 15px 15px;
+    font-size: 15px;
+    color: #3d3d3d;
+    text-align: center;
 }
 
 .sidebar .closebtn {
@@ -423,7 +428,8 @@ p {
 }
 
 .openbtn:hover,
-.openbtn::after {
+.openbtn:focus,
+.openbtn:active {
     background-color: #444;
 }
 
@@ -431,11 +437,10 @@ p {
     padding: 16px;
     overflow-x: hidden;
     top: 20%;
-    transform: translateY(-50%);
-    margin-left: 0;
+    transform: translate(15%, -50%);
     position: fixed;
     text-decoration: none;
-    transition: .5s;
+    transition: 1s;
 }
 
 .alert {

@@ -85,6 +85,7 @@
         $('#submitBtn').click(function(event) {
           event.preventDefault(); // Prevent default form submission
           document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
+          document.getElementById('openbtn').style.opacity = 0;
           document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
           document.getElementById("main").style.transform = "translate(480%, -50%)";
         });
@@ -152,6 +153,7 @@
     </div>
     <script>
     function openNav() {
+      document.getElementById('openbtn').style.opacity = 0;
       document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
       document.getElementById("main").style.transform = "translate(480%, -50%)";
     }
@@ -159,12 +161,14 @@
     function closeNav() {
       document.getElementById("mySidebar").style.transform = "translate(-96%, -50%)";
       document.getElementById("main").style.transform = "translate(15%, -50%)";
+      document.getElementById('openbtn').style.opacity = 1;
     }
     </script>
     </body>
     {% if match %}
     <script type="text/javascript">
       $(document).ready(function() {
+          document.getElementById('openbtn').style.opacity = 0;
           document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
           document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
           document.getElementById("main").style.transform = "translate(480%, -50%)";
