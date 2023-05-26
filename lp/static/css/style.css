@@ -399,6 +399,19 @@ input[type="radio"] {
     text-align: center;
 }
 
+ul {
+    padding-top: 10px;
+}
+
+li {
+    text-align: left;
+}
+
+li::before {
+    content: "\2022";
+    display: inline-block;
+}
+
 .sidebar a:hover {
     color: #f1f1f1;
 }
