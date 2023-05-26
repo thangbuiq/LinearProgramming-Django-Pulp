@@ -85,10 +85,8 @@
         $('#submitBtn').click(function(event) {
           event.preventDefault(); // Prevent default form submission
           document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
-          document.getElementById("openbtn").style.marginLeft = "0";
-          document.getElementById("openbtn").style.opacity = 0.5;
           document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
-          document.getElementById("main").style.marginLeft = "350px";
+          document.getElementById("main").style.transform = "translate(480%, -50%)";
         });
       });
     </script>
@@ -104,7 +102,11 @@
     </div>
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <p id="bartext"> kontrimnonkontrimnonkontrimnon </p>
+      <div class="content">
+        <strong style="font-size:20px"> Hướng dẫn cách nhập </strong>
+        <p> pé iu pòa lém </p>
+        <p> hix đau lưng </p>
+      </div>
     </div>
     <div id="main">
       <button class="openbtn" id="openbtn" onclick="openNav()"> <span> ? </span> </button>  
@@ -150,17 +152,13 @@
     </div>
     <script>
     function openNav() {
-      document.getElementById("openbtn").style.marginLeft = "0";
-      document.getElementById("openbtn").style.opacity = 0.5;
       document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
-      document.getElementById("main").style.marginLeft = "350px";
+      document.getElementById("main").style.transform = "translate(480%, -50%)";
     }
 
     function closeNav() {
       document.getElementById("mySidebar").style.transform = "translate(-96%, -50%)";
-      document.getElementById("main").style.marginLeft= "0";
-      document.getElementById("openbtn").style.marginLeft = "10%";
-      document.getElementById("openbtn").style.opacity = 1;
+      document.getElementById("main").style.transform = "translate(15%, -50%)";
     }
     </script>
     </body>
@@ -168,10 +166,8 @@
     <script type="text/javascript">
       $(document).ready(function() {
           document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
-          document.getElementById("openbtn").style.marginLeft = "0";
-          document.getElementById("openbtn").style.opacity = 0.5;
           document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
-          document.getElementById("main").style.marginLeft = "350px";
+          document.getElementById("main").style.transform = "translate(480%, -50%)";
       });
     </script>
     {% endif %}
