@@ -374,7 +374,9 @@ input[type="radio"] {
     background-color: white;
     overflow-x: hidden;
     transition: 1s;
-    padding-top: 60px;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     flex-direction: column;
     height: 70vh;
