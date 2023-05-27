@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
 from .models import LinearProblem
 
+@csrf_protect
 def lp_solve(request):
     """
     This function solve the linear problem from the request
