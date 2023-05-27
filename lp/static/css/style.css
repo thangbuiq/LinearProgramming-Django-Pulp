@@ -548,7 +548,7 @@ input[type="radio"] {
 
     .button {
         padding: 30px 45px;
-        min-height: 50px;
+        height: 25%;
         margin-bottom: 10px;
         text-align: center;
         align-items: center;
@@ -589,6 +589,8 @@ input[type="radio"] {
     }
 
     .button {
+        padding: 30px 45px;
+        height: 25%;
         margin-bottom: 10px;
         text-align: center;
         align-items: center;

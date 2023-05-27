@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 body {
-    background: #8B74BD no-repeat;
+    background: rgba(145, 121, 143) no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,6 +37,7 @@ form {
 
 h2 {
     font-style: bold;
+    transform: translateY(-10%);
 }
 
 span {
@@ -48,15 +49,13 @@ span {
 .button {
     border-radius: 20px;
     position: relative;
-    background-color: #8B74BD;
+    background-color: rgba(145, 121, 143);
     border: none;
     display: block;
     font-size: 18px;
     margin-top: 5px;
     color: #FFFFFF;
-    padding: 16px 20px;
-    width: 120px;
-    height: 7%;
+    padding: 24px 40px;
     position: relative;
     box-sizing: border-box;
     align-items: center;
@@ -64,7 +63,6 @@ span {
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
-    overflow: hidden;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
@@ -184,7 +182,6 @@ input[type="text"]:valid {
     border-radius: 10px;
     padding: 20px 15px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-    margin-top: 5px;
 }
 
 .wrapper .option {
@@ -217,7 +214,7 @@ input[type="text"]:valid {
     left: 4px;
     width: 12px;
     height: 12px;
-    background: #8B74BD;
+    background: rgba(145, 121, 143);
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
@@ -230,8 +227,8 @@ input[type="radio"] {
 
 #option-1:checked:checked~.option-1,
 #option-2:checked:checked~.option-2 {
-    border-color: #8B74BD;
-    background: #8B74BD;
+    border-color: rgba(145, 121, 143);
+    background: rgba(145, 121, 143);
 }
 
 #option-1:checked:checked~.option-1 .dot,
@@ -308,7 +305,7 @@ input[type="radio"] {
     position: relative;
     margin: 10px auto;
     text-align: center;
-    background-color: #8B74BD;
+    background-color: rgba(145, 121, 143);
     border-radius: 20px;
     color: #ffffff;
     text-decoration: none;
@@ -372,7 +369,6 @@ input[type="radio"] {
     top: 0;
     left: 0;
     background-color: white;
-    overflow-x: hidden;
     transition: 1s;
     padding-top: 40px;
     padding-left: 10px;
@@ -381,11 +377,11 @@ input[type="radio"] {
     flex-direction: column;
     height: 70vh;
     max-width: 50%;
-    align-items: left;
     border-radius: 0 25px 25px 0;
     justify-content: center;
     top: 50%;
     transform: translate(-96%, -50%);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     gap: 16px;
 }
 
@@ -399,13 +395,14 @@ input[type="radio"] {
     text-align: center;
 }
 
-ul {
+.content ul.a {
     padding-top: 10px;
     list-style: disc outside;
 }
 
-li {
-    text-align: left;
+.content .a li {
+    list-style-type: disc;
+    text-align: justify;
 }
 
 
@@ -418,20 +415,26 @@ li {
 }
 
 .sidebar .content {
-    padding: 15px 15px 15px 15px;
-    font-size: 15px;
+    padding: 22px 22px 22px 25px;
+    font-size: 14px;
     color: #3d3d3d;
     text-align: center;
-    transform: translateY(-10%);
+    transform: translateY(-12%);
 }
 
 .sidebar .closebtn {
     position: absolute;
-    top: 0;
-    right: 1%;
+    top: 16px;
+    right: 20px;
     font-size: 36px;
-    margin-left: 50px;
+    line-height: 36px;
     cursor: pointer;
+    z-index: 1000;
+}
+
+.sidebar .closebtn:hover {
+    color: #3888ff;
+    transition: color 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .openbtn {
@@ -492,6 +495,9 @@ li {
     color: black;
 }
 
+.mjx-chtml.MJXc-display {
+    margin: 0 !important;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -521,6 +527,11 @@ li {
         height: 75%;
     }
 
+    .sidebar {
+        transform: translate(-100%, -50%);
+        max-width: 100%;
+    }
+
     .wrapper {
         width: 95%;
         border-radius: 15px;
@@ -536,6 +547,7 @@ li {
     }
 
     .button {
+        padding: 30px 45px;
         height: 25%;
         margin-bottom: 10px;
         text-align: center;
@@ -577,6 +589,7 @@ li {
     }
 
     .button {
+        padding: 30px 45px;
         height: 25%;
         margin-bottom: 10px;
         text-align: center;
