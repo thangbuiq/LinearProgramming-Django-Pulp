@@ -2,7 +2,7 @@
  * Inter Font
  *---------------------------------------------------------------------------*/
 
-@import url('https: //fonts.googleapis.com/css?family=Inter');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 
 body {
     background: rgba(145, 121, 143) no-repeat;
@@ -374,7 +374,9 @@ input[type="radio"] {
     background-color: white;
     overflow-x: hidden;
     transition: 1s;
-    padding-top: 60px;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     flex-direction: column;
     height: 70vh;
@@ -397,6 +399,20 @@ input[type="radio"] {
     text-align: center;
 }
 
+ul {
+    padding-top: 10px;
+    list-style: disc outside;
+}
+
+li {
+    text-align: left;
+}
+
+
+.content strong {
+    font-weight: bold;
+}
+
 .sidebar a:hover {
     color: #f1f1f1;
 }
@@ -406,10 +422,7 @@ input[type="radio"] {
     font-size: 15px;
     color: #3d3d3d;
     text-align: center;
-}
-
-li {
-    text-align: left;
+    transform: translateY(-10%);
 }
 
 .sidebar .closebtn {
@@ -492,7 +505,48 @@ li {
 }
 
 /* Mobile Devices */
-@media (max-width: 767px) {
+@media (max-width: 820px) {
+    form {
+        max-width: 100%;
+        border-radius: 0px;
+        transform: scale(1);
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    textarea {
+        width: 95%;
+        height: 75%;
+    }
+
+    .wrapper {
+        width: 95%;
+        border-radius: 15px;
+    }
+
+    .wrapper .option {
+        margin: 0 5px;
+    }
+
+    .popup {
+        border-radius: 15px;
+        width: 95%;
+    }
+
+    .button {
+        height: 25%;
+        margin-bottom: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:portrait) {
+
+    /* iPad portrait style here */
     form {
         max-width: 100%;
         border-radius: 0px;
