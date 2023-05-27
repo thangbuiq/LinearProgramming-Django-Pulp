@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 body {
-    background: rgba(145, 121, 143) no-repeat;
+    background: #8B74BD no-repeat;
     /* #4070f4 */
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,7 +48,7 @@ span {
 .button {
     border-radius: 20px;
     position: relative;
-    background-color: rgba(145, 121, 143);
+    background-color: #8B74BD;
     border: none;
     display: block;
     font-size: 18px;
@@ -217,7 +217,7 @@ input[type="text"]:valid {
     left: 4px;
     width: 12px;
     height: 12px;
-    background: rgba(145, 121, 143);
+    background: #8B74BD;
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
@@ -230,8 +230,8 @@ input[type="radio"] {
 
 #option-1:checked:checked~.option-1,
 #option-2:checked:checked~.option-2 {
-    border-color: rgba(145, 121, 143);
-    background: rgba(145, 121, 143);
+    border-color: #8B74BD;
+    background: #8B74BD;
 }
 
 #option-1:checked:checked~.option-1 .dot,
@@ -308,7 +308,7 @@ input[type="radio"] {
     position: relative;
     margin: 10px auto;
     text-align: center;
-    background-color: rgba(145, 121, 143);
+    background-color: #8B74BD;
     border-radius: 20px;
     color: #ffffff;
     text-decoration: none;
