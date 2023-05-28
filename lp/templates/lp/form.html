@@ -176,10 +176,8 @@
     {% if match %}
     <script type="text/javascript">
       $(document).ready(function() {
-          document.getElementById('openbtn').style.opacity = 0;
           document.getElementById('alertDiv').style.transform = "translate(0%, 0%)";
-          document.getElementById("mySidebar").style.transform = "translate(0%, -50%)";
-          document.getElementById("main").style.transform = "translate(480%, -50%)";
+          openNav();
       });
     </script>
     {% endif %}
