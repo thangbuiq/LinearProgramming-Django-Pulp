@@ -2,7 +2,7 @@
  * Inter Font
  *---------------------------------------------------------------------------*/
 
-@import url('https://fonts.cdnfonts.com/css/inter');
+@import url("https://fonts.googleapis.com/css?family=Inter");
 
 body {
     background: rgba(145, 121, 143) no-repeat;
@@ -36,7 +36,6 @@ form {
 }
 
 h2 {
-    font-weight: 800;
     transform: translateY(-10%);
 }
 
