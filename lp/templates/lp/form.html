@@ -8,8 +8,8 @@
     <title>Linear Optimization Solver</title>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     {% block css %}
-      <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
-      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/materialize.css'%}">
+      <link rel="stylesheet" href="{% static 'css/style.css'%}">
       <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
       <link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
@@ -133,7 +133,7 @@
         <label for="objective">Hàm mục tiêu:</label> 
         <input type="text" name="objective" id="objective" placeholder="c1 c2" required>
         <label for="constraints">Ràng buộc điều kiện:</label> 
-        <textarea name="constraints" class="textarea" id="constraints" rows="5" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea>
+        <textarea name="constraints" class="textarea" id="constraints" rows="6" placeholder="a11 a12 <= b1&#10;a21 a22 >= b2" required></textarea>
         <label for="bounds">Ràng buộc dấu:</label> 
         <input type="text" name="bounds" id="bounds" placeholder=">= <= (x1 >= 0 and x2 <= 0)" required>
         <input type="submit" class = "button" value="Solve">
