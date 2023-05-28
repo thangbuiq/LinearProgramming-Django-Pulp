@@ -7,16 +7,11 @@
     </script>
     <title>Linear Optimization Solver</title>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="google-site-verification" content="google-site-verification=iQ_pyeog0BPzvWqPyTPUQ17a-3uzt9SJRw3_HZNGNpQ">
     {% block css %}
       <link rel="stylesheet" href="{% static 'css/materialize.css'%}">
       <link rel="stylesheet" href="{% static 'css/style.css'%}">
-      <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+      <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
       <link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
-      <style>
-
-      </style>
     {% endblock css %}
     </head>
 <body >
@@ -105,7 +100,7 @@
       <div class="content">
         <h3> <strong style="font-size:22px"> Hướng dẫn cách nhập </strong> </h3>
         <ul class="a">
-          <li> <strong> Tính chất bài toán:</strong> nhấn chọn vào nút Minmize hoặc Maximize.</li>
+          <li> <strong> Tính chất bài toán:</strong> nhấn chọn vào nút Minimize hoặc Maximize.</li>
           <li> <strong> Hàm mục tiêu:</strong> nhập hệ số của các biến trên hàm, có bao nhiêu biến nhập bấy nhiêu, biến nào hệ số là <span>\[0\]</span> thì nhập <span>\[0\]</span>.</li>
           <li> <strong> Ràng buộc điều kiện:</strong> nhập tương tự như nhập ở hàm mục tiêu, sau đó kèm theo các dấu biểu thức <span>\[(\ge, \le, =)\]</span> và hệ số <span>\[b_i\]</span> tương ứng.</li>
           <li> <strong> Ràng buộc dấu:</strong> nhập dấu các biến theo thứ tự <span>\[(\ge, \le)\]</span>. Đối với biến tự do chọn một trong 3 cách nhập free, freedom hoặc f. Phải nhập số ràng buộc dấu bằng với số biến hàm mục tiêu.</li> 
