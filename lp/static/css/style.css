@@ -543,7 +543,7 @@ input[type="radio"] {
 
     .button {
         padding: 30px 45px;
-        height: 25%;
+        height: 20%;
         margin-bottom: 10px;
         text-align: center;
         align-items: center;
@@ -551,7 +551,7 @@ input[type="radio"] {
     }
 
     .alert {
-        margin-top: 10px;
+        margin-top: 5px;
     }
 }
 
@@ -589,10 +589,14 @@ input[type="radio"] {
 
     .button {
         padding: 30px 45px;
-        height: 25%;
+        height: 20%;
         margin-bottom: 10px;
         text-align: center;
         align-items: center;
         justify-content: center;
+    }
+
+    .alert {
+        margin-top: 5px;
     }
 }
