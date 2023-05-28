@@ -36,7 +36,7 @@ form {
 }
 
 h2 {
-    font-weight: 600;
+    font-weight: 500;
     transform: translateY(-10%);
 }
 
@@ -410,6 +410,7 @@ input[type="radio"] {
 }
 
 .sidebar .content {
+    margin-top: 10px;
     padding: 22px 22px 22px 25px;
     font-size: 14px;
     color: #3d3d3d;
