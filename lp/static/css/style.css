@@ -63,8 +63,8 @@ span {
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
-    transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     outline: none;
@@ -108,13 +108,10 @@ textarea {
     width: 500px;
     min-height: 40px;
     height: 100px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position: center;
+    color: #333;
     border-width: 2.5px;
     border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-    color: #555555;
+    border: 1.5px solid #C7BEBE;
     font-family: -apple-system,
         BlinkMacSystemFont,
         'Inter',
@@ -122,7 +119,7 @@ textarea {
     font-size: 20px;
     line-height: 1.2em;
     padding: 5px 8px;
-    transition: background-color 0.2s ease 0s;
+    transition: all 0.3s ease;
     resize: vertical;
 }
 
@@ -138,15 +135,13 @@ textarea:valid {
 input[type="text"] {
     outline: none;
     padding: 5px 15px;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     color: #333;
     font-family: -apple-system,
         BlinkMacSystemFont,
         'Inter',
         sans-serif;
-    font-size: 20px;
-    cursor: pointer;
     border: 1.5px solid #C7BEBE;
     border-width: 2.5px;
     border-radius: 8px;
