@@ -391,7 +391,6 @@ input[type="radio"] {
 }
 
 .content ul.a {
-    padding-top: 10px;
     list-style: disc outside;
 }
 
@@ -410,8 +409,7 @@ input[type="radio"] {
 }
 
 .sidebar .content {
-    margin-top: 10px;
-    padding: 22px 22px 22px 25px;
+    padding: 35px 22px 22px 25px;
     font-size: 14px;
     color: #3d3d3d;
     text-align: center;
@@ -493,6 +491,29 @@ input[type="radio"] {
 
 .mjx-chtml.MJXc-display {
     margin: 0 !important;
+}
+
+.info {
+    width: 280px;
+    max-width: 280px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: white;
+    opacity: 0.25;
+    border-radius: 15px 0 0 15px;
+    z-index: 0;
+    justify-content: center;
+    top: 85%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.info .content {
+    padding: 10px 15px 10px 25px;
+    font-size: 10px;
+    color: #3d3d3d;
+    text-align: center;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
